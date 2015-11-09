@@ -117,7 +117,7 @@ class ZmqSocket(object):
     Can be used as a Context (supports the 'with' statement).
     """
 
-        self.ctxt = zmq.Context(1)
+    ctxt = zmq.Context(1)
     def __init__(self, addr, zmq_type, bind=True, subscribe=None):
         #self.ctxt = zmq.Context(CONF.rpc_zmq_contexts)
         self.sock = self.ctxt.socket(zmq_type)
@@ -214,7 +214,7 @@ class ZmqSocket(object):
         try:
             # Default is to linger
             self.sock.close()
-            self.ctxt.term()
+            # self.ctxt.term()
         except Exception:
             # While this is a bad thing to happen,
             # it would be much worse if some of the code calling this
